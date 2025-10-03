@@ -1,5 +1,6 @@
 #include <iostream>;
 #include <string>;
+#include <stdexcept>;
 using namespace std;
 
 class Solution {
@@ -23,19 +24,3 @@ public:
         return result;
     }
 };
-
-int main() {
-    Solution sol;
-
-    try {
-        cout << sol.mergeAlternately("abc", "pqr") << endl;   // apbqcr
-        cout << sol.mergeAlternately("ab", "pqrs") << endl;   // apbqrs
-        cout << sol.mergeAlternately("abcd", "pq") << endl;   // apbqcd
-        // Caso inválido
-        cout << sol.mergeAlternately("", "abc") << endl;      // error
-    } catch (const invalid_argument &e) {
-        cerr << "Error: " << e.what() << endl;
-    }
-
-    return 0;
-}

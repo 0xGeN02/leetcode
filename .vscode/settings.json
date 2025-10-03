@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.db": "sql",
+        "stdexcept": "cpp"
+    }
+}
