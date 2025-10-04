@@ -3,6 +3,27 @@
 #include <stdexcept>;
 using namespace std;
 
+// class Solution {
+// public:
+//     char findTheDifference(string s, string t) {
+//         //Constraints
+//         if(s.size() < 0 || s.size() > 1000) throw invalid_argument("Not in range");
+//         if(t.size() != (s.size() + 1)) throw invalid_argument("Not valid size 't' string");
+        
+//         if(s.empty()) return t[0];
+
+//         for(int i = 0; i < s.size(); i++){
+//             for(int j = 0; j < t.size(); j++){
+//                 if (t[j] == s[i]){
+//                     t.erase(j,1);
+//                     break;
+//                 }
+//             }
+//         }
+//         return t[0];
+//     }
+// };
+
 class Solution {
 public:
     char findTheDifference(string s, string t) {
@@ -10,17 +31,10 @@ public:
         if(s.size() < 0 || s.size() > 1000) throw invalid_argument("Not in range");
         if(t.size() != (s.size() + 1)) throw invalid_argument("Not valid size 't' string");
         
-        if(s.empty()) return t[0];
-
-        for(int i = 0; i < s.size(); i++){
-            for(int j = 0; j < t.size(); j++){
-                if (t[j] == s[i]){
-                    t.erase(j,1);
-                    break;
-                }
-            }
-        }
-        return t[0];
+        char diff = 0; 
+        for (char c : t) diff ^= c; 
+        for (char c : s) diff ^= c;
+        return diff;
     }
 };
 
